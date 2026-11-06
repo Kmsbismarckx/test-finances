@@ -1,0 +1,626 @@
+[
+  {
+    "name": "anstyle",
+    "version": "1.0.14",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.66.0"
+  },
+  {
+    "name": "anyhow",
+    "version": "1.0.104",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.68"
+  },
+  {
+    "name": "askama",
+    "version": "0.16.1",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.88"
+  },
+  {
+    "name": "askama_derive",
+    "version": "0.16.1",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.88"
+  },
+  {
+    "name": "askama_macros",
+    "version": "0.16.1",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.88"
+  },
+  {
+    "name": "askama_parser",
+    "version": "0.16.1",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.88"
+  },
+  {
+    "name": "autocfg",
+    "version": "1.5.1",
+    "license": "Apache-2.0 OR MIT",
+    "rustVersion": "1.0"
+  },
+  {
+    "name": "basic-toml",
+    "version": "0.1.10",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "bitflags",
+    "version": "2.13.2",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.56.0"
+  },
+  {
+    "name": "bumpalo",
+    "version": "3.20.3",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.71.1"
+  },
+  {
+    "name": "bytes",
+    "version": "1.12.1",
+    "license": "MIT",
+    "rustVersion": "1.57"
+  },
+  {
+    "name": "camino",
+    "version": "1.2.6",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.61.0"
+  },
+  {
+    "name": "cargo-platform",
+    "version": "0.3.1",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.86"
+  },
+  {
+    "name": "cargo_metadata",
+    "version": "0.23.1",
+    "license": "MIT",
+    "rustVersion": "1.86.0"
+  },
+  {
+    "name": "cc",
+    "version": "1.11.1",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.65.0"
+  },
+  {
+    "name": "cfg-if",
+    "version": "1.0.5",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.32"
+  },
+  {
+    "name": "clap",
+    "version": "4.6.7",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.85"
+  },
+  {
+    "name": "clap_builder",
+    "version": "4.6.7",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.85"
+  },
+  {
+    "name": "clap_derive",
+    "version": "4.6.7",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.85"
+  },
+  {
+    "name": "clap_lex",
+    "version": "1.1.1",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.85"
+  },
+  {
+    "name": "equivalent",
+    "version": "1.0.3",
+    "license": "Apache-2.0 OR MIT",
+    "rustVersion": "1.6"
+  },
+  {
+    "name": "errno",
+    "version": "0.3.14",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.56"
+  },
+  {
+    "name": "fallible-iterator",
+    "version": "0.3.0",
+    "license": "MIT/Apache-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "fallible-streaming-iterator",
+    "version": "0.1.9",
+    "license": "MIT/Apache-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "fastrand",
+    "version": "2.5.0",
+    "license": "Apache-2.0 OR MIT",
+    "rustVersion": "1.63"
+  },
+  {
+    "name": "finance_probe",
+    "version": "0.1.0",
+    "license": null,
+    "rustVersion": null
+  },
+  {
+    "name": "find-msvc-tools",
+    "version": "0.1.15",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.65.0"
+  },
+  {
+    "name": "foldhash",
+    "version": "0.2.0",
+    "license": "Zlib",
+    "rustVersion": "1.60"
+  },
+  {
+    "name": "fs-err",
+    "version": "3.3.2",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "getrandom",
+    "version": "0.4.3",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.85"
+  },
+  {
+    "name": "glob",
+    "version": "0.3.4",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.63.0"
+  },
+  {
+    "name": "goblin",
+    "version": "0.8.2",
+    "license": "MIT",
+    "rustVersion": "1.63.0"
+  },
+  {
+    "name": "hashbrown",
+    "version": "0.16.1",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.65.0"
+  },
+  {
+    "name": "hashbrown",
+    "version": "0.17.1",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.85.0"
+  },
+  {
+    "name": "hashlink",
+    "version": "0.12.2",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.85"
+  },
+  {
+    "name": "heck",
+    "version": "0.5.0",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.56"
+  },
+  {
+    "name": "indexmap",
+    "version": "2.14.2",
+    "license": "Apache-2.0 OR MIT",
+    "rustVersion": "1.85"
+  },
+  {
+    "name": "itoa",
+    "version": "1.0.18",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.68"
+  },
+  {
+    "name": "js-sys",
+    "version": "0.3.107",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.81"
+  },
+  {
+    "name": "libc",
+    "version": "0.2.191",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.65"
+  },
+  {
+    "name": "libsqlite3-sys",
+    "version": "0.38.2",
+    "license": "MIT",
+    "rustVersion": null
+  },
+  {
+    "name": "linux-raw-sys",
+    "version": "0.12.1",
+    "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+    "rustVersion": "1.63"
+  },
+  {
+    "name": "log",
+    "version": "0.4.35",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.71.0"
+  },
+  {
+    "name": "memchr",
+    "version": "2.8.3",
+    "license": "Unlicense OR MIT",
+    "rustVersion": "1.61"
+  },
+  {
+    "name": "minimal-lexical",
+    "version": "0.2.1",
+    "license": "MIT/Apache-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "nom",
+    "version": "7.1.3",
+    "license": "MIT",
+    "rustVersion": "1.48"
+  },
+  {
+    "name": "once_cell",
+    "version": "1.21.4",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.65"
+  },
+  {
+    "name": "percent-encoding",
+    "version": "2.3.2",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.51"
+  },
+  {
+    "name": "pkg-config",
+    "version": "0.3.34",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.63"
+  },
+  {
+    "name": "plain",
+    "version": "0.2.3",
+    "license": "MIT/Apache-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "proc-macro2",
+    "version": "1.0.107",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.71"
+  },
+  {
+    "name": "quote",
+    "version": "1.0.47",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.71"
+  },
+  {
+    "name": "r-efi",
+    "version": "6.0.0",
+    "license": "MIT OR Apache-2.0 OR LGPL-2.1-or-later",
+    "rustVersion": "1.68"
+  },
+  {
+    "name": "rsqlite-vfs",
+    "version": "0.1.1",
+    "license": "MIT",
+    "rustVersion": "1.81.0"
+  },
+  {
+    "name": "rusqlite",
+    "version": "0.40.2",
+    "license": "MIT",
+    "rustVersion": null
+  },
+  {
+    "name": "rustc-hash",
+    "version": "2.1.3",
+    "license": "Apache-2.0 OR MIT",
+    "rustVersion": "1.77"
+  },
+  {
+    "name": "rustix",
+    "version": "1.1.6",
+    "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+    "rustVersion": "1.65"
+  },
+  {
+    "name": "rustversion",
+    "version": "1.0.23",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.31"
+  },
+  {
+    "name": "scroll",
+    "version": "0.12.0",
+    "license": "MIT",
+    "rustVersion": "1.63"
+  },
+  {
+    "name": "scroll_derive",
+    "version": "0.12.1",
+    "license": "MIT",
+    "rustVersion": null
+  },
+  {
+    "name": "semver",
+    "version": "1.0.28",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.68"
+  },
+  {
+    "name": "serde",
+    "version": "1.0.229",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.56"
+  },
+  {
+    "name": "serde_core",
+    "version": "1.0.229",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.56"
+  },
+  {
+    "name": "serde_derive",
+    "version": "1.0.229",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.71"
+  },
+  {
+    "name": "serde_json",
+    "version": "1.0.154",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.71"
+  },
+  {
+    "name": "serde_spanned",
+    "version": "1.1.3",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.85"
+  },
+  {
+    "name": "shlex",
+    "version": "2.0.1",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.46.0"
+  },
+  {
+    "name": "siphasher",
+    "version": "1.0.4",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "smallvec",
+    "version": "1.16.5",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "smawk",
+    "version": "0.3.3",
+    "license": "MIT",
+    "rustVersion": null
+  },
+  {
+    "name": "sqlite-wasm-rs",
+    "version": "0.5.5",
+    "license": "MIT",
+    "rustVersion": "1.81.0"
+  },
+  {
+    "name": "static_assertions",
+    "version": "1.1.0",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "strsim",
+    "version": "0.11.1",
+    "license": "MIT",
+    "rustVersion": "1.56"
+  },
+  {
+    "name": "syn",
+    "version": "2.0.119",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.71"
+  },
+  {
+    "name": "syn",
+    "version": "3.0.9",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.71"
+  },
+  {
+    "name": "tempfile",
+    "version": "3.27.0",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.63"
+  },
+  {
+    "name": "textwrap",
+    "version": "0.16.4",
+    "license": "MIT",
+    "rustVersion": "1.88"
+  },
+  {
+    "name": "thiserror",
+    "version": "2.0.21",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.77"
+  },
+  {
+    "name": "thiserror-impl",
+    "version": "2.0.21",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.77"
+  },
+  {
+    "name": "toml",
+    "version": "1.2.1+spec-1.1.0",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.85"
+  },
+  {
+    "name": "toml_datetime",
+    "version": "1.1.3+spec-1.1.0",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.85"
+  },
+  {
+    "name": "toml_parser",
+    "version": "1.1.5+spec-1.1.0",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.85"
+  },
+  {
+    "name": "toml_writer",
+    "version": "1.2.0+spec-1.1.0",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.85"
+  },
+  {
+    "name": "unicode-ident",
+    "version": "1.0.27",
+    "license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+    "rustVersion": "1.71"
+  },
+  {
+    "name": "unicode-width",
+    "version": "0.2.3",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.66"
+  },
+  {
+    "name": "uniffi",
+    "version": "0.32.0",
+    "license": "MPL-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "uniffi_bindgen",
+    "version": "0.32.0",
+    "license": "MPL-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "uniffi_core",
+    "version": "0.32.0",
+    "license": "MPL-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "uniffi_internal_macros",
+    "version": "0.32.0",
+    "license": "MPL-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "uniffi_macros",
+    "version": "0.32.0",
+    "license": "MPL-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "uniffi_meta",
+    "version": "0.32.0",
+    "license": "MPL-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "uniffi_pipeline",
+    "version": "0.32.0",
+    "license": "MPL-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "uniffi_udl",
+    "version": "0.32.0",
+    "license": "MPL-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "vcpkg",
+    "version": "0.2.15",
+    "license": "MIT/Apache-2.0",
+    "rustVersion": null
+  },
+  {
+    "name": "wasm-bindgen",
+    "version": "0.2.130",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.81"
+  },
+  {
+    "name": "wasm-bindgen-macro",
+    "version": "0.2.130",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.81"
+  },
+  {
+    "name": "wasm-bindgen-macro-support",
+    "version": "0.2.130",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.81"
+  },
+  {
+    "name": "wasm-bindgen-shared",
+    "version": "0.2.130",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.81"
+  },
+  {
+    "name": "weedle2",
+    "version": "5.0.0",
+    "license": "MIT",
+    "rustVersion": null
+  },
+  {
+    "name": "windows-link",
+    "version": "0.2.1",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.71"
+  },
+  {
+    "name": "windows-sys",
+    "version": "0.61.2",
+    "license": "MIT OR Apache-2.0",
+    "rustVersion": "1.71"
+  },
+  {
+    "name": "winnow",
+    "version": "1.0.5",
+    "license": "MIT",
+    "rustVersion": "1.65.0"
+  },
+  {
+    "name": "zeroize",
+    "version": "1.9.1",
+    "license": "Apache-2.0 OR MIT",
+    "rustVersion": "1.85"
+  },
+  {
+    "name": "zmij",
+    "version": "1.0.23",
+    "license": "MIT",
+    "rustVersion": "1.71"
+  }
+]

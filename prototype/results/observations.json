@@ -1,0 +1,386 @@
+{
+  "scope": "macOS real Swift/UniFFI/Rust/SQLCipher probe",
+  "events": [
+    {
+      "cipher": "4.14.0 community",
+      "entries": 1,
+      "firstMinor": 99300,
+      "journal": "wal",
+      "provider": "commoncrypto",
+      "queued": 1,
+      "receipts": 1,
+      "result": "committed",
+      "scenario": "seed",
+      "schema": 1,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "restart.db"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 1,
+      "firstMinor": 99300,
+      "journal": "wal",
+      "provider": "commoncrypto",
+      "queued": 1,
+      "receipts": 1,
+      "scenario": "read",
+      "schema": 1,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "restart.db"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 1,
+      "firstMinor": 99300,
+      "journal": "wal",
+      "provider": "commoncrypto",
+      "queued": 1,
+      "receipts": 1,
+      "result": "committed_duplicate",
+      "scenario": "seed",
+      "schema": 1,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "restart.db"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 2,
+      "firstMinor": 90300,
+      "journal": "wal",
+      "provider": "commoncrypto",
+      "queued": 2,
+      "receipts": 2,
+      "result": "committed",
+      "scenario": "transfer",
+      "schema": 1,
+      "secondMinor": 19000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "restart.db"
+    },
+    {
+      "scenario": "crash",
+      "exit": 77,
+      "failpoint": 1,
+      "file": "crash-before.db",
+      "processExitWithoutDestructors": true
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 0,
+      "firstMinor": 100000,
+      "journal": "wal",
+      "provider": "commoncrypto",
+      "queued": 0,
+      "receipts": 0,
+      "scenario": "read",
+      "schema": 1,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "crash-before.db"
+    },
+    {
+      "scenario": "crash",
+      "exit": 78,
+      "failpoint": 2,
+      "file": "crash-after.db",
+      "processExitWithoutDestructors": true
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 1,
+      "firstMinor": 91000,
+      "journal": "wal",
+      "provider": "commoncrypto",
+      "queued": 1,
+      "receipts": 1,
+      "scenario": "read",
+      "schema": 1,
+      "secondMinor": 19000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "crash-after.db"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 0,
+      "firstMinor": 100000,
+      "journal": "wal",
+      "provider": "commoncrypto",
+      "queued": 0,
+      "receipt": "not_committed",
+      "receipts": 0,
+      "result": "cancelled_before_commit",
+      "scenario": "cancel",
+      "schema": 1,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "cancel-1.db"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 0,
+      "firstMinor": 100000,
+      "journal": "wal",
+      "provider": "commoncrypto",
+      "queued": 0,
+      "receipt": "not_committed",
+      "receipts": 0,
+      "result": "cancelled_before_commit",
+      "scenario": "cancel",
+      "schema": 1,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "cancel-2.db"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 1,
+      "firstMinor": 91000,
+      "journal": "wal",
+      "provider": "commoncrypto",
+      "queued": 1,
+      "receipt": "committed",
+      "receipts": 1,
+      "result": "committed_after_cancel",
+      "retry": "committed_duplicate",
+      "scenario": "cancel",
+      "schema": 1,
+      "secondMinor": 19000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "cancel-3.db"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 1,
+      "firstMinor": 91000,
+      "journal": "wal",
+      "provider": "commoncrypto",
+      "queued": 1,
+      "receipt": "committed",
+      "receipts": 1,
+      "result": "committed",
+      "retry": "committed_duplicate",
+      "scenario": "task-cancel",
+      "schema": 1,
+      "secondMinor": 19000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "swift-task-cancel.db"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "controlledKeyBufferCleared": true,
+      "entries": 0,
+      "firstMinor": 100000,
+      "hardwareLockEvent": false,
+      "journal": "wal",
+      "newCommandsRejected": true,
+      "provider": "commoncrypto",
+      "queued": 0,
+      "receipts": 0,
+      "scenario": "close",
+      "schema": 1,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "close.db"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 1,
+      "firstMinor": 99300,
+      "journal": "delete",
+      "provider": "commoncrypto",
+      "queued": 1,
+      "receipts": 1,
+      "result": "committed",
+      "scenario": "legacy",
+      "schema": 1,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "source-v1.db"
+    },
+    {
+      "scenario": "migrate",
+      "exit": 81,
+      "failpoint": 1,
+      "file": "source-v1.db",
+      "processExitWithoutDestructors": true
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 1,
+      "firstMinor": 99300,
+      "journal": "wal",
+      "provider": "commoncrypto",
+      "queued": 1,
+      "receipts": 1,
+      "scenario": "read",
+      "schema": 1,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "candidate-1.db"
+    },
+    {
+      "scenario": "migrate",
+      "exit": 82,
+      "failpoint": 2,
+      "file": "source-v1.db",
+      "processExitWithoutDestructors": true
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 1,
+      "firstMinor": 99300,
+      "journal": "wal",
+      "provider": "commoncrypto",
+      "queued": 1,
+      "receipts": 1,
+      "scenario": "read",
+      "schema": 2,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "candidate-2.db"
+    },
+    {
+      "result": "candidate_validated_source_untouched_activation_not_implemented",
+      "scenario": "migrate",
+      "file": "source-v1.db"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 1,
+      "firstMinor": 99300,
+      "journal": "wal",
+      "provider": "commoncrypto",
+      "queued": 1,
+      "receipts": 1,
+      "scenario": "read",
+      "schema": 2,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "candidate-0.db"
+    },
+    {
+      "scenario": "migration-source",
+      "byteIdentical": true,
+      "activation": "NOT IMPLEMENTED"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 0,
+      "firstMinor": 100000,
+      "journal": "wal",
+      "observedFiles": [
+        ":32768 bytes, marker absent",
+        "-wal:782832 bytes, marker absent",
+        "-shm:32768 bytes, marker absent"
+      ],
+      "provider": "commoncrypto",
+      "queued": 0,
+      "receipts": 0,
+      "scenario": "wal",
+      "schema": 1,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "files-wal.db"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 0,
+      "firstMinor": 100000,
+      "journal": "delete",
+      "observedFiles": [
+        ":454656 bytes, marker absent",
+        "-journal:390664 bytes, marker absent"
+      ],
+      "provider": "commoncrypto",
+      "queued": 0,
+      "receipts": 0,
+      "scenario": "journal",
+      "schema": 1,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "files-journal.db"
+    },
+    {
+      "rejected": true,
+      "scenario": "wrong-key",
+      "file": "source-v1.db"
+    },
+    {
+      "output": "{\"future\":{\"flag\":true,\"nested\":[1,2,3]},\"minor\":9007199254740993,\"note\":\"edited by old reader\"}",
+      "preserved": true,
+      "scenario": "unknown-field",
+      "file": "unused.db"
+    },
+    {
+      "scenario": "file-scan",
+      "markerAbsent": true,
+      "files": [
+        "cancel-1.db",
+        "cancel-2.db",
+        "cancel-3.db",
+        "candidate-0.db",
+        "candidate-1.db",
+        "candidate-2.db",
+        "close.db",
+        "crash-after.db",
+        "crash-before.db",
+        "files-journal.db",
+        "files-wal.db",
+        "restart.db",
+        "source-v1.db",
+        "swift-task-cancel.db"
+      ],
+      "cryptographicProof": false
+    }
+  ],
+  "environment": {
+    "rust": {
+      "exit": 0,
+      "output": "rustc 1.90.0 (1159e78c4 2025-09-14)"
+    },
+    "swift": {
+      "exit": 0,
+      "output": "Apple Swift version 6.2.3 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)\nTarget: arm64-apple-macosx28.0\nswift-driver version: 1.127.14.1"
+    },
+    "xcode": {
+      "exit": 1,
+      "output": "xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance"
+    },
+    "simulators": {
+      "exit": 72,
+      "output": "xcrun: error: unable to find utility \"simctl\", not a developer tool or in PATH"
+    },
+    "host": {
+      "system": "Darwin",
+      "machine": "arm64"
+    }
+  },
+  "remaining": [
+    "iOS device/simulator builds and XCFramework/Swift Package",
+    "real iPhone Keychain and lock/background events",
+    "migration activation/recovery after file replacement",
+    "actual filesystem full/I/O and power-loss faults",
+    "complete wire/crypto protocol and compatibility matrix",
+    "absolute erasure of Swift/FFI/SQLCipher copies is NOT claimed"
+  ]
+}
