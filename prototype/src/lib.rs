@@ -353,7 +353,7 @@ pub fn migrate_copy(
     if state.schema != 2 || state.entries != state.queued || state.entries != state.receipts {
         return Err(failure("candidate validation failed"));
     }
-    Ok("candidate_validated_source_untouched_activation_not_implemented".into())
+    Ok("candidate_validated_source_untouched_activation_not_performed".into())
 }
 
 /// One fixture only: does NOT select the application's wire protocol.
@@ -365,4 +365,110 @@ pub fn unknown_field_roundtrip(payload: String) -> Result<String, ProbeError> {
         .ok_or_else(|| failure("object required"))?;
     object.insert("note".into(), serde_json::json!("edited by old reader"));
     serde_json::to_string(&value).map_err(failure)
+}
+
+fn sync_parent(path: &Path) -> Result<(), ProbeError> {
+    std::fs::File::open(path.parent().ok_or_else(|| failure("parent required"))?)
+        .map_err(failure)?
+        .sync_all()
+        .map_err(failure)
+}
+fn schema_at(path: &str, key: &[u8]) -> Result<i64, ProbeError> {
+    if !Path::new(path).is_file() {
+        return Err(failure("database missing"));
+    }
+    if Path::new(&format!("{path}-wal")).exists() {
+        return Err(failure("database must be quiescent without WAL"));
+    }
+    let db = open_db(path, key)?;
+    Ok(db.query_row("PRAGMA user_version", [], |r| r.get(0))?)
+}
+
+/// Probe-only same-directory activation. Both inputs must already be closed, without WAL.
+/// Retains encrypted .previous; no key material is written to the tiny state marker.
+#[uniffi::export]
+pub fn activate_copy(
+    source: String,
+    candidate: String,
+    key: Vec<u8>,
+    stop: u8,
+) -> Result<String, ProbeError> {
+    use std::io::Write;
+    let key = Zeroizing::new(key);
+    if Path::new(&source).parent() != Path::new(&candidate).parent() || source == candidate {
+        return Err(failure("distinct same-directory paths required"));
+    }
+    if schema_at(&source, &key)? != 1 || schema_at(&candidate, &key)? != 2 {
+        return Err(failure("expected source v1 and validated candidate v2"));
+    }
+    let backup = format!("{source}.previous");
+    let marker = format!("{source}.swap");
+    if Path::new(&marker).exists() || Path::new(&backup).exists() {
+        return Err(failure(
+            "prior activation state must be inspected before a new activation",
+        ));
+    }
+    let mut previous = std::fs::OpenOptions::new()
+        .write(true)
+        .create_new(true)
+        .open(&backup)
+        .map_err(failure)?;
+    std::io::copy(
+        &mut std::fs::File::open(&source).map_err(failure)?,
+        &mut previous,
+    )
+    .map_err(failure)?;
+    previous.sync_all().map_err(failure)?;
+    let mut journal = std::fs::OpenOptions::new()
+        .write(true)
+        .create_new(true)
+        .open(&marker)
+        .map_err(failure)?;
+    journal
+        .write_all(b"probe-v1-to-v2-ready\n")
+        .map_err(failure)?;
+    journal.sync_all().map_err(failure)?;
+    sync_parent(Path::new(&source))?;
+    if stop == 1 {
+        std::process::exit(83);
+    }
+    std::fs::rename(&candidate, &source).map_err(failure)?;
+    sync_parent(Path::new(&source))?;
+    if stop == 2 {
+        std::process::exit(84);
+    }
+    std::fs::remove_file(&marker).map_err(failure)?;
+    sync_parent(Path::new(&source))?;
+    Ok("new_source_active_previous_retained".into())
+}
+
+/// Does not guess after an unreadable source: verifies source/backup before cleanup.
+/// For the exercised atomic rename, restart observes either old v1 or new v2.
+#[uniffi::export]
+pub fn recover_activation(source: String, key: Vec<u8>) -> Result<String, ProbeError> {
+    let key = Zeroizing::new(key);
+    let marker = format!("{source}.swap");
+    let backup = format!("{source}.previous");
+    if !Path::new(&marker).exists() {
+        schema_at(&source, &key)?;
+        return Ok("nothing_to_recover".into());
+    }
+    if std::fs::read(&marker).map_err(failure)? != b"probe-v1-to-v2-ready\n" {
+        return Err(failure("unrecognized activation marker"));
+    }
+    if schema_at(&backup, &key)? != 1 {
+        return Err(failure("previous database not valid"));
+    }
+    let version = schema_at(&source, &key)?;
+    if version != 1 && version != 2 {
+        return Err(failure("unexpected active schema"));
+    }
+    std::fs::remove_file(marker).map_err(failure)?;
+    sync_parent(Path::new(&source))?;
+    Ok(if version == 1 {
+        "old_source_preserved_candidate_not_activated"
+    } else {
+        "new_source_active_previous_retained"
+    }
+    .into())
 }

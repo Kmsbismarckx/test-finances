@@ -2,3 +2,9 @@ prototype/target/
 prototype/generated/
 prototype/build/
 prototype/output/
+prototype/Package/Artifacts/
+prototype/Package/Sources/FinanceProbe/finance_probe.swift
+prototype/Package/.build/
+prototype/Package/.swiftpm/
+prototype/ios/*.xcodeproj/project.xcworkspace/
+prototype/ios/*.xcodeproj/xcuserdata/

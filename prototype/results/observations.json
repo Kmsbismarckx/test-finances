@@ -257,7 +257,7 @@
       "file": "candidate-2.db"
     },
     {
-      "result": "candidate_validated_source_untouched_activation_not_implemented",
+      "result": "candidate_validated_source_untouched_activation_not_performed",
       "scenario": "migrate",
       "file": "source-v1.db"
     },
@@ -279,7 +279,170 @@
     {
       "scenario": "migration-source",
       "byteIdentical": true,
-      "activation": "NOT IMPLEMENTED"
+      "activation": "verified separately below"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 1,
+      "firstMinor": 99300,
+      "journal": "delete",
+      "provider": "commoncrypto",
+      "queued": 1,
+      "receipts": 1,
+      "result": "committed",
+      "scenario": "legacy",
+      "schema": 1,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "activation-1.db"
+    },
+    {
+      "result": "candidate_validated_source_untouched_activation_not_performed",
+      "scenario": "migrate",
+      "file": "activation-1.db"
+    },
+    {
+      "scenario": "activate",
+      "exit": 83,
+      "failpoint": 1,
+      "file": "activation-1.db",
+      "processExitWithoutDestructors": true
+    },
+    {
+      "result": "old_source_preserved_candidate_not_activated",
+      "scenario": "recover-activation",
+      "file": "activation-1.db"
+    },
+    {
+      "result": "nothing_to_recover",
+      "scenario": "recover-activation",
+      "file": "activation-1.db"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 1,
+      "firstMinor": 99300,
+      "journal": "wal",
+      "provider": "commoncrypto",
+      "queued": 1,
+      "receipts": 1,
+      "scenario": "read",
+      "schema": 1,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "activation-1.db"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 1,
+      "firstMinor": 99300,
+      "journal": "delete",
+      "provider": "commoncrypto",
+      "queued": 1,
+      "receipts": 1,
+      "result": "committed",
+      "scenario": "legacy",
+      "schema": 1,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "activation-2.db"
+    },
+    {
+      "result": "candidate_validated_source_untouched_activation_not_performed",
+      "scenario": "migrate",
+      "file": "activation-2.db"
+    },
+    {
+      "scenario": "activate",
+      "exit": 84,
+      "failpoint": 2,
+      "file": "activation-2.db",
+      "processExitWithoutDestructors": true
+    },
+    {
+      "result": "new_source_active_previous_retained",
+      "scenario": "recover-activation",
+      "file": "activation-2.db"
+    },
+    {
+      "result": "nothing_to_recover",
+      "scenario": "recover-activation",
+      "file": "activation-2.db"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 1,
+      "firstMinor": 99300,
+      "journal": "wal",
+      "provider": "commoncrypto",
+      "queued": 1,
+      "receipts": 1,
+      "scenario": "read",
+      "schema": 2,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "activation-2.db"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 1,
+      "firstMinor": 99300,
+      "journal": "delete",
+      "provider": "commoncrypto",
+      "queued": 1,
+      "receipts": 1,
+      "result": "committed",
+      "scenario": "legacy",
+      "schema": 1,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "activation-0.db"
+    },
+    {
+      "result": "candidate_validated_source_untouched_activation_not_performed",
+      "scenario": "migrate",
+      "file": "activation-0.db"
+    },
+    {
+      "result": "new_source_active_previous_retained",
+      "scenario": "activate",
+      "file": "activation-0.db"
+    },
+    {
+      "result": "nothing_to_recover",
+      "scenario": "recover-activation",
+      "file": "activation-0.db"
+    },
+    {
+      "result": "nothing_to_recover",
+      "scenario": "recover-activation",
+      "file": "activation-0.db"
+    },
+    {
+      "cipher": "4.14.0 community",
+      "entries": 1,
+      "firstMinor": 99300,
+      "journal": "wal",
+      "provider": "commoncrypto",
+      "queued": 1,
+      "receipts": 1,
+      "scenario": "read",
+      "schema": 2,
+      "secondMinor": 10000,
+      "synchronous": 2,
+      "tempStore": 2,
+      "file": "activation-0.db"
+    },
+    {
+      "scenario": "activation-summary",
+      "sourceOrValidatedCandidateOnRestart": true,
+      "encryptedPreviousRetained": true,
+      "powerLossTested": false
     },
     {
       "cipher": "4.14.0 community",
@@ -335,6 +498,13 @@
       "scenario": "file-scan",
       "markerAbsent": true,
       "files": [
+        "activation-0.db",
+        "activation-0.db.previous",
+        "activation-1.db",
+        "activation-1.db.previous",
+        "activation-2.db",
+        "activation-2.db.previous",
+        "activation-candidate-1.db",
         "cancel-1.db",
         "cancel-2.db",
         "cancel-3.db",
@@ -376,11 +546,391 @@
     }
   },
   "remaining": [
-    "iOS device/simulator builds and XCFramework/Swift Package",
+    "iOS evidence is recorded separately in ios-observations.json",
     "real iPhone Keychain and lock/background events",
-    "migration activation/recovery after file replacement",
     "actual filesystem full/I/O and power-loss faults",
     "complete wire/crypto protocol and compatibility matrix",
     "absolute erasure of Swift/FFI/SQLCipher copies is NOT claimed"
-  ]
+  ],
+  "ios": {
+    "scope": "iOS Simulator actual local Swift Package + XCFramework app",
+    "runtime": "iOS 27.2",
+    "deviceName": "FinancePrototype-Throwaway",
+    "architecture": "arm64",
+    "buildDeploymentTarget": "17.0 (probe floor only)",
+    "events": [
+      {
+        "cipher": "4.14.0 community",
+        "entries": 1,
+        "environment": "simulator",
+        "firstMinor": 99300,
+        "keyAccessibility": "WhenUnlockedThisDeviceOnly (simulator fixture)",
+        "model": "iPhone",
+        "os": "27.2",
+        "outcome": "committed",
+        "provider": "commoncrypto",
+        "queued": 1,
+        "receipts": 1,
+        "scenario": "seed",
+        "schema": 1,
+        "secondMinor": 10000,
+        "status": "ok",
+        "synchronous": 2,
+        "tempStore": 2,
+        "database": "restart"
+      },
+      {
+        "cipher": "4.14.0 community",
+        "entries": 1,
+        "environment": "simulator",
+        "firstMinor": 99300,
+        "keyAccessibility": "WhenUnlockedThisDeviceOnly (simulator fixture)",
+        "model": "iPhone",
+        "os": "27.2",
+        "provider": "commoncrypto",
+        "queued": 1,
+        "receipts": 1,
+        "scenario": "read",
+        "schema": 1,
+        "secondMinor": 10000,
+        "status": "ok",
+        "synchronous": 2,
+        "tempStore": 2,
+        "database": "restart"
+      },
+      {
+        "cipher": "4.14.0 community",
+        "entries": 1,
+        "environment": "simulator",
+        "firstMinor": 99300,
+        "keyAccessibility": "WhenUnlockedThisDeviceOnly (simulator fixture)",
+        "model": "iPhone",
+        "os": "27.2",
+        "outcome": "committed_duplicate",
+        "provider": "commoncrypto",
+        "queued": 1,
+        "receipts": 1,
+        "scenario": "seed",
+        "schema": 1,
+        "secondMinor": 10000,
+        "status": "ok",
+        "synchronous": 2,
+        "tempStore": 2,
+        "database": "restart"
+      },
+      {
+        "cipher": "4.14.0 community",
+        "entries": 2,
+        "environment": "simulator",
+        "firstMinor": 90300,
+        "keyAccessibility": "WhenUnlockedThisDeviceOnly (simulator fixture)",
+        "model": "iPhone",
+        "os": "27.2",
+        "outcome": "committed",
+        "provider": "commoncrypto",
+        "queued": 2,
+        "receipts": 2,
+        "scenario": "transfer",
+        "schema": 1,
+        "secondMinor": 19000,
+        "status": "ok",
+        "synchronous": 2,
+        "tempStore": 2,
+        "database": "restart"
+      },
+      {
+        "cipher": "4.14.0 community",
+        "entries": 2,
+        "environment": "simulator",
+        "firstMinor": 90300,
+        "keyAccessibility": "WhenUnlockedThisDeviceOnly (simulator fixture)",
+        "model": "iPhone",
+        "os": "27.2",
+        "provider": "commoncrypto",
+        "queued": 2,
+        "receipts": 2,
+        "scenario": "read",
+        "schema": 1,
+        "secondMinor": 19000,
+        "status": "ok",
+        "synchronous": 2,
+        "tempStore": 2,
+        "database": "restart"
+      },
+      {
+        "closedReadRejected": true,
+        "controlledKeyBufferCleared": true,
+        "environment": "simulator",
+        "keyAccessibility": "WhenUnlockedThisDeviceOnly (simulator fixture)",
+        "model": "iPhone",
+        "os": "27.2",
+        "scenario": "close",
+        "status": "ok",
+        "database": "restart"
+      },
+      {
+        "scenario": "crash-before",
+        "database": "crash_before",
+        "processEndedAtFailpoint": true
+      },
+      {
+        "cipher": "4.14.0 community",
+        "entries": 0,
+        "environment": "simulator",
+        "firstMinor": 100000,
+        "keyAccessibility": "WhenUnlockedThisDeviceOnly (simulator fixture)",
+        "model": "iPhone",
+        "os": "27.2",
+        "provider": "commoncrypto",
+        "queued": 0,
+        "receipts": 0,
+        "scenario": "read",
+        "schema": 1,
+        "secondMinor": 10000,
+        "status": "ok",
+        "synchronous": 2,
+        "tempStore": 2,
+        "database": "crash_before"
+      },
+      {
+        "scenario": "crash-after",
+        "database": "crash_after",
+        "processEndedAtFailpoint": true
+      },
+      {
+        "cipher": "4.14.0 community",
+        "entries": 1,
+        "environment": "simulator",
+        "firstMinor": 91000,
+        "keyAccessibility": "WhenUnlockedThisDeviceOnly (simulator fixture)",
+        "model": "iPhone",
+        "os": "27.2",
+        "provider": "commoncrypto",
+        "queued": 1,
+        "receipts": 1,
+        "scenario": "read",
+        "schema": 1,
+        "secondMinor": 19000,
+        "status": "ok",
+        "synchronous": 2,
+        "tempStore": 2,
+        "database": "crash_after"
+      },
+      {
+        "cipher": "4.14.0 community",
+        "entries": 0,
+        "environment": "simulator",
+        "firstMinor": 100000,
+        "keyAccessibility": "WhenUnlockedThisDeviceOnly (simulator fixture)",
+        "model": "iPhone",
+        "os": "27.2",
+        "outcome": "cancelled_before_commit",
+        "provider": "commoncrypto",
+        "queued": 0,
+        "receipt": "not_committed",
+        "receipts": 0,
+        "scenario": "cancel-before",
+        "schema": 1,
+        "secondMinor": 10000,
+        "status": "ok",
+        "synchronous": 2,
+        "tempStore": 2,
+        "database": "cancel_before"
+      },
+      {
+        "cipher": "4.14.0 community",
+        "entries": 1,
+        "environment": "simulator",
+        "firstMinor": 91000,
+        "keyAccessibility": "WhenUnlockedThisDeviceOnly (simulator fixture)",
+        "model": "iPhone",
+        "os": "27.2",
+        "outcome": "committed_after_cancel",
+        "provider": "commoncrypto",
+        "queued": 1,
+        "receipt": "committed",
+        "receipts": 1,
+        "scenario": "cancel-after",
+        "schema": 1,
+        "secondMinor": 19000,
+        "status": "ok",
+        "synchronous": 2,
+        "tempStore": 2,
+        "database": "cancel_after"
+      },
+      {
+        "cipher": "4.14.0 community",
+        "entries": 1,
+        "environment": "simulator",
+        "firstMinor": 99300,
+        "keyAccessibility": "WhenUnlockedThisDeviceOnly (simulator fixture)",
+        "model": "iPhone",
+        "os": "27.2",
+        "outcome": "committed",
+        "provider": "commoncrypto",
+        "queued": 1,
+        "receipts": 1,
+        "scenario": "seed",
+        "schema": 1,
+        "secondMinor": 10000,
+        "status": "ok",
+        "synchronous": 2,
+        "tempStore": 2,
+        "database": "migration"
+      },
+      {
+        "activation": "new_source_active_previous_retained",
+        "activationRecovery": "nothing_to_recover",
+        "cipher": "4.14.0 community",
+        "entries": 1,
+        "environment": "simulator",
+        "firstMinor": 99300,
+        "keyAccessibility": "WhenUnlockedThisDeviceOnly (simulator fixture)",
+        "migration": "candidate_validated_source_untouched_activation_not_performed",
+        "model": "iPhone",
+        "os": "27.2",
+        "provider": "commoncrypto",
+        "queued": 1,
+        "receipts": 1,
+        "scenario": "migration",
+        "schema": 2,
+        "secondMinor": 10000,
+        "status": "ok",
+        "synchronous": 2,
+        "tempStore": 2,
+        "database": "migration"
+      },
+      {
+        "cipher": "4.14.0 community",
+        "entries": 1,
+        "environment": "simulator",
+        "firstMinor": 99300,
+        "keyAccessibility": "WhenUnlockedThisDeviceOnly (simulator fixture)",
+        "model": "iPhone",
+        "os": "27.2",
+        "provider": "commoncrypto",
+        "queued": 1,
+        "receipts": 1,
+        "scenario": "read",
+        "schema": 2,
+        "secondMinor": 10000,
+        "status": "ok",
+        "synchronous": 2,
+        "tempStore": 2,
+        "database": "migration"
+      },
+      {
+        "cipher": "4.14.0 community",
+        "entries": 2,
+        "environment": "simulator",
+        "firstMinor": 90300,
+        "keyAccessibility": "WhenUnlockedThisDeviceOnly (simulator fixture)",
+        "model": "iPhone",
+        "os": "27.2",
+        "provider": "commoncrypto",
+        "queued": 2,
+        "receipts": 2,
+        "scenario": "read",
+        "schema": 1,
+        "secondMinor": 19000,
+        "status": "ok",
+        "synchronous": 2,
+        "tempStore": 2,
+        "database": "restart"
+      },
+      {
+        "scenario": "scene-transition",
+        "events": [
+          {
+            "controlledKeyBufferCleared": true,
+            "event": "scene-inactive",
+            "time": "2026-11-07T06:53:32Z",
+            "protectedDataAvailable": true
+          }
+        ],
+        "hardwareLockTested": false
+      },
+      {
+        "scenario": "file-scan",
+        "files": [
+          "PROTOTYPE-<run>_cancel_after.db",
+          "PROTOTYPE-<run>_cancel_after.db-shm",
+          "PROTOTYPE-<run>_cancel_after.db-wal",
+          "PROTOTYPE-<run>_cancel_before.db",
+          "PROTOTYPE-<run>_cancel_before.db-shm",
+          "PROTOTYPE-<run>_cancel_before.db-wal",
+          "PROTOTYPE-<run>_crash_after.db",
+          "PROTOTYPE-<run>_crash_after.db-shm",
+          "PROTOTYPE-<run>_crash_after.db-wal",
+          "PROTOTYPE-<run>_crash_before.db",
+          "PROTOTYPE-<run>_crash_before.db-shm",
+          "PROTOTYPE-<run>_crash_before.db-wal",
+          "PROTOTYPE-<run>_migration.db",
+          "PROTOTYPE-<run>_migration.db-shm",
+          "PROTOTYPE-<run>_migration.db-wal",
+          "PROTOTYPE-<run>_migration.db.previous",
+          "PROTOTYPE-<run>_restart.db"
+        ],
+        "markerAbsent": true,
+        "cryptographicProof": false
+      }
+    ],
+    "physicalDeviceTested": false,
+    "remaining": [
+      "physical iPhone signing, passcode-protected Keychain, Face ID and hardware lock",
+      "device-level power-loss/full-disk and complete protocol compatibility"
+    ]
+  },
+  "iosBuild": {
+    "xcode": "Xcode 27.2\nBuild version 27B52",
+    "rust": "rustc 1.90.0 (1159e78c4 2025-09-14)",
+    "swift": "Apple Swift version 6.4.2 (swiftlang-6.4.2.1.9 clang-2100.4.1.1)\nTarget: arm64-apple-macosx27.0.0",
+    "slices": [
+      {
+        "BinaryPath": "libfinance_probe.a",
+        "HeadersPath": "Headers",
+        "LibraryIdentifier": "ios-arm64",
+        "LibraryPath": "libfinance_probe.a",
+        "SupportedArchitectures": [
+          "arm64"
+        ],
+        "SupportedPlatform": "ios"
+      },
+      {
+        "BinaryPath": "libfinance_probe.a",
+        "HeadersPath": "Headers",
+        "LibraryIdentifier": "ios-arm64-simulator",
+        "LibraryPath": "libfinance_probe.a",
+        "SupportedArchitectures": [
+          "arm64"
+        ],
+        "SupportedPlatform": "ios",
+        "SupportedPlatformVariant": "simulator"
+      }
+    ],
+    "apps": {
+      "device": {
+        "architecture": "arm64",
+        "buildVersion": "<prototype>/build/ios-device/Build/Products/Debug-iphoneos/ProbeApp.app/ProbeApp.debug.dylib:\nLoad command 10\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform IOS\n    minos 17.0\n      sdk 27.2\n   ntools 1\n     tool LD\n  version 27106.1",
+        "xcodeCodeSigningAllowed": false,
+        "signing": "unsigned build only"
+      },
+      "simulator": {
+        "architecture": "arm64",
+        "buildVersion": "<prototype>/build/ios-simulator/Build/Products/Debug-iphonesimulator/ProbeApp.app/ProbeApp.debug.dylib:\nLoad command 10\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform IOSSIMULATOR\n    minos 17.0\n      sdk 27.2\n   ntools 1\n     tool LD\n  version 27106.1",
+        "xcodeCodeSigningAllowed": true,
+        "signing": "Xcode ad-hoc; simulated iOS entitlements",
+        "hostSignatureEntitlements": {},
+        "simulatedEntitlements": {
+          "application-identifier": "PROBEFIXTUR.dev.finance.throwawayprobe",
+          "com.apple.developer.team-identifier": "PROBEFIXTUR",
+          "keychain-access-groups": [
+            "PROBEFIXTUR.dev.finance.throwawayprobe"
+          ]
+        }
+      }
+    },
+    "delivery": "local Swift Package consumes XCFramework; no direct app link to target/debug",
+    "buildDeploymentTarget": "17.0 is a probe floor, not verified minimum supported runtime"
+  }
 }

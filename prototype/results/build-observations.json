@@ -1,0 +1,52 @@
+{
+  "xcode": "Xcode 27.2\nBuild version 27B52",
+  "rust": "rustc 1.90.0 (1159e78c4 2025-09-14)",
+  "swift": "Apple Swift version 6.4.2 (swiftlang-6.4.2.1.9 clang-2100.4.1.1)\nTarget: arm64-apple-macosx27.0.0",
+  "slices": [
+    {
+      "BinaryPath": "libfinance_probe.a",
+      "HeadersPath": "Headers",
+      "LibraryIdentifier": "ios-arm64",
+      "LibraryPath": "libfinance_probe.a",
+      "SupportedArchitectures": [
+        "arm64"
+      ],
+      "SupportedPlatform": "ios"
+    },
+    {
+      "BinaryPath": "libfinance_probe.a",
+      "HeadersPath": "Headers",
+      "LibraryIdentifier": "ios-arm64-simulator",
+      "LibraryPath": "libfinance_probe.a",
+      "SupportedArchitectures": [
+        "arm64"
+      ],
+      "SupportedPlatform": "ios",
+      "SupportedPlatformVariant": "simulator"
+    }
+  ],
+  "apps": {
+    "device": {
+      "architecture": "arm64",
+      "buildVersion": "<prototype>/build/ios-device/Build/Products/Debug-iphoneos/ProbeApp.app/ProbeApp.debug.dylib:\nLoad command 10\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform IOS\n    minos 17.0\n      sdk 27.2\n   ntools 1\n     tool LD\n  version 27106.1",
+      "xcodeCodeSigningAllowed": false,
+      "signing": "unsigned build only"
+    },
+    "simulator": {
+      "architecture": "arm64",
+      "buildVersion": "<prototype>/build/ios-simulator/Build/Products/Debug-iphonesimulator/ProbeApp.app/ProbeApp.debug.dylib:\nLoad command 10\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform IOSSIMULATOR\n    minos 17.0\n      sdk 27.2\n   ntools 1\n     tool LD\n  version 27106.1",
+      "xcodeCodeSigningAllowed": true,
+      "signing": "Xcode ad-hoc; simulated iOS entitlements",
+      "hostSignatureEntitlements": {},
+      "simulatedEntitlements": {
+        "application-identifier": "PROBEFIXTUR.dev.finance.throwawayprobe",
+        "com.apple.developer.team-identifier": "PROBEFIXTUR",
+        "keychain-access-groups": [
+          "PROBEFIXTUR.dev.finance.throwawayprobe"
+        ]
+      }
+    }
+  },
+  "delivery": "local Swift Package consumes XCFramework; no direct app link to target/debug",
+  "buildDeploymentTarget": "17.0 is a probe floor, not verified minimum supported runtime"
+}

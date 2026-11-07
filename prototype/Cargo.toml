@@ -10,9 +10,13 @@ crate-type = ["cdylib", "staticlib", "rlib"]
 [[bin]]
 name = "bindgen"
 path = "src/bin/bindgen.rs"
+required-features = ["bindgen-cli"]
+
+[features]
+bindgen-cli = ["uniffi/cli", "uniffi/cargo-metadata"]
 
 [dependencies]
-uniffi = { version = "=0.32.0", features = ["cli"] }
+uniffi = { version = "=0.32.0", default-features = false }
 rusqlite = { version = "=0.40.2", features = ["bundled-sqlcipher"] }
 serde_json = "1"
 thiserror = "2"

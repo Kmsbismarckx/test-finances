@@ -31,6 +31,13 @@ func waitStage(_ c: Control, _ target: UInt8) async throws {
         guard args.count >= 3 else { throw HarnessFailure.message("usage: probe scenario scratch-path [args]") }
         let mode = args[1], path = args[2]
         let key = Data(repeating: 0x42, count: 32)
+        if mode == "activate" {
+            let result = try activateCopy(source: path, candidate: args[3], key: key, stop: UInt8(args[4])!)
+            emit(mode, ["result": result]); return
+        }
+        if mode == "recover-activation" {
+            emit(mode, ["result": try recoverActivation(source: path, key: key)]); return
+        }
         if mode == "migrate" {
             do {
                 let result = try migrateCopy(source: path, candidate: args[3], key: key, stop: UInt8(args[4])!)
